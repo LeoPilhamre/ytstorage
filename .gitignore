@@ -1,32 +1,53 @@
-# macOS
-.DS_Store
+# Created by https://www.toptal.com/developers/gitignore/api/scala,sbt,visualstudiocode,bloop,metals
+# Edit at https://www.toptal.com/developers/gitignore?templates=scala,sbt,visualstudiocode,bloop,metals
 
-# sbt specific
+### Bloop ###
+.bloop/
+
+### Metals ###
+.metals/
+project/**/metals.sbt
+
+### SBT ###
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
 dist/*
 target/
 lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
-project/local-plugins.sbt
 .history
-.ensime
-.ensime_cache/
-.sbt-scripted/
-local.sbt
+.cache
+.lib/
 
-# Bloop
-.bsp
+### SBT Patch ###
+.bsp/
 
-# VS Code
-.vscode/
+### Scala ###
+*.class
+*.log
 
-# Metals
-.bloop/
-.metals/
-metals.sbt
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 
-# IDEA
-.idea
-.idea_modules
-/.worksheet/
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/scala,sbt,visualstudiocode,bloop,metals
