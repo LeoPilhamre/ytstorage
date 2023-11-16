@@ -33,7 +33,7 @@ project/plugins/project/
 hs_err_pid*
 
 ### VisualStudioCode ###
-.vscode
+.vscode/
 
 # Local History for Visual Studio Code
 .history/
