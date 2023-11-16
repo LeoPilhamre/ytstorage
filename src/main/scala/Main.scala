@@ -1,6 +1,8 @@
 package ytstorage
 
 import ytstorage.Files.toLines
+import ytstorage.lib.qrmedia.QRMedia
+import java.awt.image.BufferedImage
 
 
 object Main:
@@ -8,7 +10,7 @@ object Main:
 --------------------------
 ~HELP~
 
-Commands:
+Commands:SS
   run encode <file.txt>
   run encode <folder>
   run decode <video.mp4>
@@ -26,6 +28,15 @@ Commands:
         case "encode" =>
           require(i + 1 < args.length, "You used 'encode' wrong!")
           i += 1
+
+          //QRMedia.from(path=args(i), version=40) => QRMedia
+          //QRMedia.from(path="qrcode.png").decode()
+          val frames: Vector[BufferedImage] = QRMedia.from(path=args(i), version=40)
+            .encode(width=1920, height=1080)
+
+
+
+          
 
           val encoder = new Encoder()
           
