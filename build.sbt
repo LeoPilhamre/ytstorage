@@ -8,5 +8,8 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
+    resolvers += "QRGen" at "http://kenglxn.github.com/QRGen/repository",
+
+    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
+    libraryDependencies += "net.glxn" % "qrgen" % "1.1"
   )
