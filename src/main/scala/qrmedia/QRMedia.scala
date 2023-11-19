@@ -3,10 +3,11 @@ package ytstorage.lib.qrmedia
 import java.awt.image.BufferedImage
 import ytstorage.Files
 import java.io.File
-import net.glxn.qrgen.*
+import com.google.zxing.qrcode.encoder.{QRCode, Encoder}
 import scala.collection.mutable.ArrayBuffer
 import ytstorage.Frames
 import ytstorage.Frames.*
+import com.google.zxing.qrcode.decoder.*
 
 case class QRMedia(file: File, version: Int):
 	import QRMedia.*
@@ -28,7 +29,12 @@ case class QRMedia(file: File, version: Int):
 	): Frames =
 		val frames: ArrayBuffer[BufferedImage] = ArrayBuffer[BufferedImage]()
 		
-
+		//TODO: Alignment Cover
+		
+		var content = ""
+		val code: QRCode = Encoder.encode(content, ErrorCorrectionLevel.L)
+		code.setVersion(Version.getVersionForNumber(40))
+		code.setMode(Mode.)
 		
 		frames.toSeq.toFrames
 		
