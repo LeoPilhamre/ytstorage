@@ -31,19 +31,17 @@ Commands:SS
 
           //QRMedia.from(path=args(i), version=40) => QRMedia
           //QRMedia.from(path="qrcode.png").decode()
-          val frames: Vector[BufferedImage] = QRMedia.from(path=args(i), version=40)
+          val frames: Frames = QRMedia.from(path=args(i), version=40)
             .encode(width=1920, height=1080)
-
-
-
+          frames.exportAsMOV("test.mov", 60)
           
 
-          val encoder = new Encoder()
+          /*val encoder = new Encoder()
           
           val file = Files.read(path = args(i))
           val image = encoder.encode(file.toLines)
           Files.store(image, "resources/image")
-
+*/
         case "decode" =>
           require(i + 1 < args.length, "You used 'decode' wrong!")
 

@@ -5,6 +5,8 @@ import ytstorage.Files
 import java.io.File
 import net.glxn.qrgen.*
 import scala.collection.mutable.ArrayBuffer
+import ytstorage.Frames
+import ytstorage.Frames.*
 
 case class QRMedia(file: File, version: Int):
 	import QRMedia.*
@@ -23,11 +25,12 @@ case class QRMedia(file: File, version: Int):
 		height: Int = 512,
 		alignment: Alignment = Alignment.Cover,
 		allowMultiple: Boolean = true
-	): Vector[BufferedImage] =
+	): Frames =
 		val frames: ArrayBuffer[BufferedImage] = ArrayBuffer[BufferedImage]()
 		
 
-		frames.toVector
+		
+		frames.toSeq.toFrames
 		
 
 object QRMedia:
