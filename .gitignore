@@ -45,4 +45,6 @@ hs_err_pid*
 # Ignore all local history of files
 .ionide
 
+resources/src
+
 # End of https://www.toptal.com/developers/gitignore/api/scala,sbt,visualstudiocode,bloop,metals

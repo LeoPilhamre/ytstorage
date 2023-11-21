@@ -8,6 +8,11 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
+    resolvers += "Xuggle Repo" at "https://xuggle.googlecode.com/svn/trunk/repo/share/java/",
+
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
-    libraryDependencies += "net.glxn" % "qrgen" % "1.4"
+    libraryDependencies += "net.glxn" % "qrgen" % "1.4",
+    libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.32",
+    libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.32",
+    libraryDependencies += "xuggle" % "xuggle-xuggler" % "5.4" from "https://files.liferay.com/mirrors/xuggle.googlecode.com/svn/trunk/repo/share/java/xuggle/xuggle-xuggler/5.4/xuggle-xuggler-5.4.jar"
   )

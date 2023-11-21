@@ -1,6 +1,5 @@
 package ytstorage
 
-import ytstorage.Files.toLines
 import ytstorage.lib.qrmedia.QRMedia
 import java.awt.image.BufferedImage
 
@@ -10,9 +9,9 @@ object Main:
 --------------------------
 ~HELP~
 
-Commands:SS
-  run encode <file.txt>
-  run encode <folder>
+Commands:
+  run encode <file> <target.mp4>
+  run encode <folder> <target.mp4>
   run decode <video.mp4>
 
 --------------------------
@@ -23,28 +22,22 @@ Commands:SS
 
     var i = 0
     for arg <- args do
-      val arg = args(i)
       arg.toLowerCase match
         case "encode" =>
           require(i + 1 < args.length, "You used 'encode' wrong!")
           i += 1
 
-          //QRMedia.from(path=args(i), version=40) => QRMedia
-          //QRMedia.from(path="qrcode.png").decode()
           val frames: Frames = QRMedia.from(path=args(i), version=40)
-            .encode(width=1920, height=1080)
-          frames.exportAsMOV("test.mov", 60)
+            .encode(width=1920, height=1080, scale=2)
+          frames.exportAsMOV(if i + 1 >= args.length then "video.mp4" else { i += 1; args(i) }, 60)
           
-
-          /*val encoder = new Encoder()
+          // for j <- 0 until frames.frames.length do
+          //  Files.store(frames(j), s"frame$j.jpg")
           
-          val file = Files.read(path = args(i))
-          val image = encoder.encode(file.toLines)
-          Files.store(image, "resources/image")
-*/
         case "decode" =>
           require(i + 1 < args.length, "You used 'decode' wrong!")
+          i += 1
 
         case _ => ;
-      
+
       i += 1
